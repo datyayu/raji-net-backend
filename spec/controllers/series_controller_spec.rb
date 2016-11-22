@@ -52,21 +52,6 @@ RSpec.describe SeriesController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new series as @series" do
-      get :new, params: {}, session: valid_session
-      expect(assigns(:series)).to be_a_new(Series)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested series as @series" do
-      series = Series.create! valid_attributes
-      get :edit, params: {id: series.to_param}, session: valid_session
-      expect(assigns(:series)).to eq(series)
-    end
-  end
-
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Series" do
