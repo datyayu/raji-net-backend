@@ -1,3 +1,3 @@
 class SeriesSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image
+  attributes :id, :name, :image, :releases
 end
