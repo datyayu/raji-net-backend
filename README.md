@@ -1,24 +1,14 @@
-# README
+# Raji@net
+ Backend for raji.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Install
+```bash
+$ rake db:setup
+$ rails s
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# TODO
+- [ ] Add upload endpoints
+- [ ] Send files to s3 / cdn
+- [ ] Integrate frontend
+- [ ] Write specs
