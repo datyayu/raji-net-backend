@@ -11,7 +11,7 @@ User.create({ name: 'test-user', email: 'test@test.test',    password: '123test'
 Artist.create({ name: 'Chiwa Saito', image: 'https://s3-us-west-1.amazonaws.com/raji-demo/artists/chiwa_saito.jpg' })
 
 Track.create({ name: 'Staple Stable',                
-               url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_1/02+-+staple+stable+-instrumental-.lite.mp3', 
+               url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_1/01+-+staple+stable.lite.mp3', 
                artists: Artist.where(:id => 1).to_a })
 Track.create({ name: 'Staple Stable (Instrumental)', 
                url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_1/02+-+staple+stable+-instrumental-.lite.mp3', 
