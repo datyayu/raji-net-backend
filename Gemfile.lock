@@ -74,6 +74,8 @@ GEM
       mini_portile2 (~> 2.1.0)
     nokogiri (1.6.8.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
+    pg (0.19.0)
+    pg (0.19.0-x86-mingw32)
     puma (3.6.2)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -154,6 +156,7 @@ DEPENDENCIES
   active_model_serializers
   byebug
   listen (~> 3.0.5)
+  pg
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rspec-rails (~> 3.5.0)
