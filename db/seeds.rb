@@ -1,65 +1,103 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-Artist.create({ name: 'Iguchi Yuka',   image: '/images/iguchi-yuka.jpg'   })
-Artist.create({ name: 'Hanazawa Kana', image: '/images/kanazawa-hana.jpg' })
-Artist.create({ name: 'Minase Inori',  image: '/images/minase-inori.jpg'  })
-
+# Users
 User.create({ name: 'admin',     email: 'admin@admin.admin', password: '123admin' })
 User.create({ name: 'test-user', email: 'test@test.test',    password: '123test'  })
 
-Track.create({ name: 'Puengue',
-               url: '/audio/song-1.mp3',
-               artists: Artist.where(:id => 1).to_a })
-Track.create({ name: 'Ren\'ai Circulation',
-               url: '/audio/song-2.mp3',
-               artists: Artist.where(:id => 2).to_a })
-Track.create({ name: 'Starry Light',
-               url: '/audio/song-3.mp3',
-               artists: Artist.where(:id => 3).to_a })
 
-Release.create({ name: 'Hafa Adai',
-                 image: '/images/hafa-adai.jpg',
-                 year: 2014,
-                 length: 1,
+######################################
+####      MONOGATARI SERIES      #####
+######################################
+
+# Monogatari single 1
+Artist.create({ name: 'Chiwa Saito', image: 'https://s3-us-west-1.amazonaws.com/raji-demo/artists/chiwa_saito.jpg' })
+
+Track.create({ name: 'Staple Stable',                
+               url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_1/02+-+staple+stable+-instrumental-.lite.mp3', 
+               artists: Artist.where(:id => 1).to_a })
+Track.create({ name: 'Staple Stable (Instrumental)', 
+               url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_1/02+-+staple+stable+-instrumental-.lite.mp3', 
+               artists: Artist.where(:id => 1).to_a })
+
+Release.create({ name: 'Staple Stable',
+                 image: 'https://s3-us-west-1.amazonaws.com/raji-demo/releases/bakemonogatari_OP_1.jpg',
+                 year: 2009,
+                 length: 2,
                  plays: 0,
-                 single_type: :album,
+                 single_type: :op_single,
                  artists: Artist.where(:id => 1).to_a,
-                 tracks: Track.where(:id => 1).to_a })
-Release.create({ name: 'Monogatari OP 3',
-                 image: '/images/mongotari.jpg',
-                 year: 2012,
-                 length: 1,
+                 tracks: [
+                     Track.find(1),
+                     Track.find(2),
+                 ]})
+
+
+# Monogatari single 2
+Artist.create({ name: 'Emiri Katou', image: 'https://s3-us-west-1.amazonaws.com/raji-demo/artists/katou_emiri.jpg' })
+
+Track.create({ name: 'Kaerimichi',                url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_2/01+-+Kaerimichi.lite.mp3', artists: Artist.where(:id => 2).to_a })
+Track.create({ name: 'Kaerimichi (Instrumental)', url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_2/02+-+Kaerimichi+-instrumental-.lite.mp3', artists: Artist.where(:id => 2).to_a })
+
+Release.create({ name: 'Kaerimichi',
+                 image: 'https://s3-us-west-1.amazonaws.com/raji-demo/releases/bakemonogatari_OP_2.jpg',
+                 year: 2009,
+                 length: 2,
                  plays: 0,
                  single_type: :op_single,
                  artists: Artist.where(:id => 2).to_a,
-                 tracks: Track.where(:id => 2).to_a })
-Release.create({ name: 'Starry Light',
-                 image: '/images/starry-light.jpg',
-                 year: 2016,
+                 tracks: [
+                     Track.find(3),
+                     Track.find(4),
+                 ]})
+
+
+# Monogatari single 3
+Artist.create({ name: 'Miyuki Sawashiro', image: 'https://s3-us-west-1.amazonaws.com/raji-demo/artists/sawashiro_miyuki.jpg' })
+
+Track.create({ name: 'Ambivalent World',                url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_3/01+-+ambivalent+world.lite.mp3', artists: Artist.where(:id => 3).to_a })
+Track.create({ name: 'Ambivalent World (Instrumental)', url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/monogatari_3/02+-+ambivalent+world+-instrumental-.lite.mp3', artists: Artist.where(:id => 3).to_a })
+
+Release.create({ name: 'Ambivalent World',
+                 image: 'https://s3-us-west-1.amazonaws.com/raji-demo/releases/bakemonogatari_OP_3.jpg',
+                 year: 2009,
                  length: 3,
                  plays: 0,
-                 single_type: :single,
+                 single_type: :op_single,
                  artists: Artist.where(:id => 3).to_a,
-                 tracks: Track.where(:id => 3).to_a })
+                 tracks: [
+                     Track.find(5),
+                     Track.find(6),
+                 ]})
+
 
 Series.create({ name: 'Monogatari series',
-                image: '/images/monogotari.jpg',
-                releases: Release.where(:id => 2).to_a })
+                image: 'https://s3-us-west-1.amazonaws.com/raji-demo/series/monogatari-series.webp',
+                releases: [
+                    Release.find(1),
+                    Release.find(2),
+                    Release.find(3),
+                ]})
 
-Season.create({ name: 'Fall 2015',
-                image: '/images/fall-2015.jpg',
-                series: Series.all.to_a })
 
-Playlist.create({ name: 'Sample playlist',
-                  image: '/images/sample-playlist.jpg',
-                  plays: 100,
-                  length: 3,
-                  year: 2016,
-                  tracks: Track.all.to_a,
-                  user: User.where(:id => 1).first })
+######################################
+####      KYOUSOU GIGA (TV)      #####
+######################################
+
+Artist.create({ name: 'Tamurapan', image: 'https://s3-us-west-1.amazonaws.com/raji-demo/artists/tamurapan.jpg' })
+
+Track.create({ name: 'Koko',     url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/kyousogiga_op/01.lite.mp3', artists: Artist.where(:id => 4).to_a })
+Track.create({ name: 'Jibun Wo', url: 'https://s3-us-west-1.amazonaws.com/raji-demo/audio/kyousogiga_op/02.lite.mp3', artists: Artist.where(:id => 4).to_a })
+
+Release.create({ name: 'Koko',
+                 image: 'https://s3-us-west-1.amazonaws.com/raji-demo/releases/kyousogiga_op.jpg',
+                 year: 2013,
+                 length: 2,
+                 plays: 0,
+                 single_type: :op_single,
+                 artists: Artist.where(:id => 4).to_a,
+                 tracks: [
+                     Track.find(7),
+                     Track.find(8),
+                 ]})
+
+Series.create({ name: 'Kyousou Giga',
+                image: 'https://s3-us-west-1.amazonaws.com/raji-demo/series/kyousougiga.webp',
+                releases: Release.where(:id => 4).to_a })

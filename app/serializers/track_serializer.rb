@@ -1,5 +1,5 @@
 class TrackSerializer < ActiveModel::Serializer
-  attributes :id, :name, :url, :artists
+  attributes :id, :name, :url, :artists, :release
 
   def artists
     object.artists.map { |artist| artist.name  }
