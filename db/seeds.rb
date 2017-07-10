@@ -113,3 +113,4 @@ kyousogiga_op = Release.create({ name: 'Koko',
 Series.create({ name: 'Kyousou Giga',
                 image: 'https://s3-us-west-1.amazonaws.com/raji-demo/series/kyousougiga.webp',
                 releases: [kyousogiga_op] })
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

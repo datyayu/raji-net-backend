@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  scope(:path => '/api') do
-    # the rest of your routes go here
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  # Graphql
+  post '/graphql', to: 'graphql#execute'
+
+  # Graphiql interactive page
+  mount GraphiQL::Rails::Engine, at: '/', graphql_path: '/graphql'
+
+  # Normal api resources
+  scope(path: '/api') do
     resources :users
     resources :playlists
     resources :releases
@@ -8,5 +17,4 @@ Rails.application.routes.draw do
     resources :tracks
     resources :series
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
