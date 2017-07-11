@@ -20,8 +20,11 @@ gem 'active_model_serializers'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+
+# Graphql stuff
 gem 'graphql'
 gem "graphiql-rails"
+gem 'graphql-batch'
 
 group :production do
   gem 'pg'

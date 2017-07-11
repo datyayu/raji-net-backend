@@ -3,6 +3,12 @@ SeriesType = GraphQL::ObjectType.define do
 
   field :id, types.ID, "Series id"
   field :name, types.String, "Series name"
-  field :artist, types.String, "Series artist"
   field :image, types.String, "Series cover image"
+
+  field :releases, ReleaseType.to_list_type do
+    description "Releases related to the series"
+    resolve -> (obj, args, ctx) {
+      AssociationLoader.for(Release, :releases).load(obj)
+    }
+  end
 end
