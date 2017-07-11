@@ -1,1 +1,1 @@
-web: bundle exec rake db:setup && bundle exec rails server -p $PORT
+web: bundle exec rails server -p $PORT
